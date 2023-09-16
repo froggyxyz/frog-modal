@@ -5,12 +5,12 @@ export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@nuxtjs/frog-modal',
+    name: 'frog-modal',
     configKey: 'frog-modal'
   },
   // Default configuration options of the Nuxt module
   defaults: {},
-  setup (options, nuxt) {
+  setup () {
     const resolver = createResolver(import.meta.url)
 
     addComponent({
