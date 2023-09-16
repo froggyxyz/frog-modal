@@ -1,0 +1,44 @@
+:root {
+  --frog-modal-transition: visibility 0.2s, opacity 0.2s;
+  --frog-modal-overlay-opacity: 0.5;
+  --frog-modal-overlay-background: #0e151e;
+}
+
+.frog-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition: var(--frog-modal-transition);
+}
+
+.frog-modal.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.frog-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  opacity: var(--frog-modal-overlay-opacity);
+  background: var(--frog-modal-overlay-background);
+}
+
+.frog-modal__content {
+  position: relative;
+  z-index: 1;
+}
