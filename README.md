@@ -69,8 +69,7 @@ Then use composable useFrogModal. And just import your modal component and pass 
 </template>
 
 <script setup>
-import MyModal from 'components/MyModal.vue';
-// You can use auto-imports, this is written just for example
+import MyModal from '~/components/MyModal.vue';
     
 const [setModal, closeModal] = useFrogModal();
 // You can specify any other names instead of setModal and closeModal
