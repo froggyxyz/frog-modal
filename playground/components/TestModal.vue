@@ -1,8 +1,17 @@
 <template>
   <div class="modal">
     <p>Hello! It's awesome frog-modal</p>
+    <p>Custom text from prop: {{ text }}</p>
+    <button @click="emit('customEmit')">
+      Click for custom emit
+    </button>
   </div>
 </template>
+
+<script lang="ts" setup>
+defineProps<{ text: string }>();
+const emit = defineEmits(['customEmit']);
+</script>
 
 <style scoped>
 .modal {
@@ -10,6 +19,7 @@
   min-width: 250px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 

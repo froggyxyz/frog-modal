@@ -1,7 +1,7 @@
 <template>
   <div>
     <FrogModal />
-    <button @click="setFrogModal(TestModal)">
+    <button @click="setFrogModal(TestModal, { text: 'Hello World!', onCustomEmit: handleClick })">
       Open modal
     </button>
   </div>
@@ -13,6 +13,10 @@ import {useFrogModal} from "../src/runtime/composables/useFrogModal";
 import TestModal from "~/components/TestModal.vue";
 
 const [setFrogModal] = useFrogModal();
+
+const handleClick = () => {
+    alert('Custom emit works!');
+}
 </script>
 
 <style>
