@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "froggyxyz",
   "type": "module",
+  "keywords": ["nuxt3", "modal"],
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",

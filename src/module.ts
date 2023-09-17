@@ -1,31 +1,42 @@
-import {defineNuxtModule, addPlugin, createResolver, addComponent, addImports} from '@nuxt/kit'
+import {defineNuxtModule, createResolver, addComponent, addImports} from '@nuxt/kit'
+import {fileURLToPath} from "node:url";
 
 // Module options TypeScript interface definition
-export interface ModuleOptions {}
+export interface ModuleOptions {
+  componentName: string;
+  composableName: string;
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'frog-modal',
     configKey: 'frog-modal'
   },
-  // Default configuration options of the Nuxt module
-  defaults: {},
-  setup () {
+  defaults: {
+    componentName: 'FrogModal',
+    composableName: 'useFrogModal',
+  },
+  setup (options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
+    const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url));
+    nuxt.options.build.transpile.push(runtimeDir)
+
     addComponent({
-      name: 'FrogModal',
-      export: 'FrogModal',
+      name: options.componentName,
+      export: options.componentName,
       filePath: resolver.resolve('runtime/components/FrogModal'),
     });
 
     addImports({
-      name: 'useFrogModal',
-      as: 'useFrogModal',
-      from: resolver.resolve('runtime/components/useFrogModal'),
-    })
+      name: options.composableName,
+      as: options.composableName,
+      from: resolver.resolve('runtime/composables/useFrogModal'),
+    });
 
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    addPlugin(resolver.resolve('./runtime/plugin'))
+    nuxt.hook('imports:dirs', (dirs) => {
+      dirs.push(resolver.resolve(runtimeDir), 'composables');
+      dirs.push(resolver.resolve(runtimeDir), 'components');
+    });
   }
 })
