@@ -1,9 +1,9 @@
 import './modal.css';
 import {h, useState} from "#imports";
 import {DefineComponent} from "vue";
-import useFrogModal from "../composables/useFrogModal";
+import {useFrogModal} from "../composables/useFrogModal";
 
-export default {
+export const FrogModal = {
     setup() {
         const modal = useState<DefineComponent>('frog-modal');
         const [, closeModal] = useFrogModal();

@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import FrogModal from "../src/runtime/components/FrogModal";
-import useFrogModal from "../src/runtime/composables/useFrogModal";
+import {FrogModal} from "../src/runtime/components/FrogModal";
+import {useFrogModal} from "../src/runtime/composables/useFrogModal";
 import TestModal from "~/components/TestModal.vue";
 
 const [setFrogModal] = useFrogModal();
