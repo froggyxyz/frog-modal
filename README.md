@@ -90,6 +90,32 @@ const [, closeModal] = useFrogModal();
 </script>
 ```
 
+If you need to pass the props and emits to modal component, you can pass it to second _(optional)_ parameter of setter function.
+
+```js
+const handleClick = () => console.log('Custom emit works');
+
+const [setModal] = useFrogModal();
+
+setModal(MyModal, { someProp: "Hello, it's frog-modal", onCustomEmit: handleClick });
+// To set emits, you need pass them in camelCase, which starts with "on".
+
+// Some examples
+// @submit => onSubmit
+// @click => onClick
+// @customEvent => onCustomEvent
+```
+
+Also, you can add type definition of props and emits.
+
+```ts
+const handleClick = () => console.log('Custom emit works');
+
+const [setModal] = useFrogModal<{ text: string }>();
+
+setModal(MyModal, { text: 'Hello' });
+```
+
 If you need to customize the modal, you have the option to change the value of some variables, or access the classes directly.
 
 ```css
