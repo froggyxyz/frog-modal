@@ -109,8 +109,6 @@ setModal(MyModal, { someProp: "Hello, it's frog-modal", onCustomEmit: handleClic
 Also, you can add type definition of props and emits.
 
 ```ts
-const handleClick = () => console.log('Custom emit works');
-
 const [setModal] = useFrogModal<{ text: string }>();
 
 setModal(MyModal, { text: 'Hello' });
