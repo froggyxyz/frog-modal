@@ -1,6 +1,6 @@
 {
   "name": "frog-modal",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Modal helper for Nuxt 3",
   "repository": "froggyxyz/frog-modal",
   "license": "MIT",
