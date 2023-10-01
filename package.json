@@ -8,7 +8,9 @@
   "type": "module",
   "keywords": [
     "nuxt3",
-    "modal"
+    "modal",
+    "front-end",
+    "typescript"
   ],
   "exports": {
     ".": {
