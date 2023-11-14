@@ -66,17 +66,18 @@ Then use composable useFrogModal. And just import your modal component and pass 
 ```vue
 <template>
     <button @click="setModal(MyModal)">Open modal</button>
+    <p>Is open state for frog-modal true/false: {{ isOpen }}</p>
 </template>
 
 <script setup>
 import MyModal from '~/components/MyModal.vue';
     
-const [setModal, closeModal] = useFrogModal();
+const [setModal, closeModal, isOpen] = useFrogModal();
 // You can specify any other names instead of setModal and closeModal
 </script>
 ```
 
-useFrogModal returns two functions: a function to set the modal window and a function to clear it.
+useFrogModal returns two functions and boolean state: a function to set the modal window, a function to clear it and isOpen state
 
 If you only need a function to close.
 
